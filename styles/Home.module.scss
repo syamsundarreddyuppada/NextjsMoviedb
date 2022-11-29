@@ -1,0 +1,45 @@
+.container {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1b2a3e;
+
+  .main__img {
+    width: 100%;
+    position: relative;
+  }
+  .popular_movies {
+    font-size: 28px;
+    line-height: 42px;
+    line-height: 100%;
+    color: white;
+  }
+  .container__movies__wrapper {
+    padding: 15px 30px;
+  }
+  .movie__card__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 20px 20px 10px;
+
+    .movie__card {
+      width: 290px;
+      margin-bottom: 15px;
+    }
+  }
+  .pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button{
+      color: white;
+      .Mui-selected{
+        background: none;
+        color: red !important;
+      }
+    }
+  }
+}

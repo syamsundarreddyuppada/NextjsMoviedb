@@ -1,0 +1,34 @@
+.movie_detail {
+  display: flex;
+  .movie__info{
+    width: 35%;
+    z-index: 200;
+    font-family: 'Helvetica Neue LT Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    .rating{
+      margin-top: -15px;
+    }
+    .overview{
+      margin-top: 0;
+    }
+    .release_wrapper{
+      margin-bottom: 1em;
+    }
+    .release{
+      margin-right: 4em;
+    }
+    .release_language{
+      margin-right: 2em;
+    }
+  }
+  .movie__poster{
+    flex: 1;
+  }
+
+}
