@@ -1,34 +1,117 @@
 .movie_detail {
   display: flex;
-  .movie__info{
+  width: 100%;
+  height: 100%;
+  .movie__info {
     width: 35%;
     z-index: 200;
-    font-family: 'Helvetica Neue LT Pro';
+    font-family: "Helvetica Neue LT Pro";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.7);
     display: flex;
     flex-direction: column;
-    padding: 60px;
-    .rating{
+    height: 57vh;
+    justify-content: space-between;
+    padding-left: 3em;
+    padding-top: 4em;
+    .rating {
       margin-top: -15px;
     }
-    .overview{
+    .overview {
       margin-top: 0;
     }
-    .release_wrapper{
+    .release_wrapper {
       margin-bottom: 1em;
     }
-    .release{
-      margin-right: 4em;
+    .release {
+      margin-right: 1em;
     }
-    .release_language{
-      margin-right: 2em;
+    .release_language {
+      margin-right: 1em;
+    }
+    .icon_star {
+      color: gold;
+      font-size: 17px;
+      margin-bottom: -2px;
     }
   }
-  .movie__poster{
-    flex: 1;
+  .movie__poster {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    .movie_playbtn {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      width: 30px;
+      height: 30px;
+      transform: scale(1.6);
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.9);
+      }
+    }
+    .subMain_img {
+      width: 60%;
+      position: relative;
+    }
   }
+  @media only screen and (max-width: 768px) {
+    .movie__info {
+      font-size: 14px;
+    }
+    .movie__poster {
+      .subMain_img {
+        width: 75%;
+      }
+      .movie_playbtn {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .movie_detail {
+    flex-direction: column-reverse;
+    position: relative;
 
+    .movie__info {
+      width: 100%;
+      height: 100%;
+      padding: 2em 3em 0em 3em;
+      margin-bottom: 3em;
+      .back{
+        position: absolute;
+        top: 5%;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        background: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        left: 5%;
+      }
+    }
+    .movie__poster {
+      width: 100%;
+      position: relative;
+      .subMain_img {
+        width: 100%;
+        :first-child {
+          width: 100% !important;
+        }
+        .subMain_img__poster{
+          background: linear-gradient(to bottom, rgb(0 0 0 / 70%), rgb(0 0 0 / 70%));
+        }
+      }
+    }
+  }
 }

@@ -8,6 +8,7 @@
   .main__img {
     width: 100%;
     position: relative;
+    height: 40vh;
   }
   .popular_movies {
     font-size: 28px;
@@ -24,21 +25,40 @@
     width: 100%;
     justify-content: space-between;
     padding: 20px 20px 20px 10px;
+    gap: 20px;
 
     .movie__card {
       width: 290px;
       margin-bottom: 15px;
     }
   }
-  .pagination{
+  .pagination {
     width: 100%;
     display: flex;
     justify-content: center;
-    button{
+    button {
       color: white;
-      .Mui-selected{
+      .Mui-selected {
         background: none;
         color: red !important;
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .main__img {
+      height: 30vh;
+    }
+    .movie__card__wrapper {
+      padding: 20px 10px;
+      justify-content: center;
+      .movie__card {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+    .pagination{
+      li{
+        width: 30px;
       }
     }
   }

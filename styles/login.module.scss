@@ -1,0 +1,53 @@
+.login_container {
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login_wrapper {
+    min-width: 300px;
+    width: 30%;
+    height: auto;
+    background: white;
+    padding: 1em 2em;
+    border-radius: 10px;
+
+    .nameContainer,
+    .emailContainer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 7px;
+      flex-direction: column;
+    }
+
+    input {
+      background-color: white;
+      border: 1px solid #ff7d65;
+      color: black;
+      padding: 0.6em;
+      border-radius: 8px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    padding: 7px;
+    border-radius: 11px;
+    border: 1px solid #ff7d65;
+    background: #ef5e43;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 1em;
+    &:hover {
+      background: #ff6043;
+    }
+  }
+  .error {
+    font-size: 0.7rem;
+    color: red;
+  }
+}
