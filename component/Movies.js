@@ -32,6 +32,8 @@ function Movies({ movie }) {
             <span className={styles.subtitle__details}>
               <StarIcon className={styles.icon_star} />{" "}
               {parseInt(movie.vote_average)}/10
+              <span className={styles.imdb}>IMDb</span>
+
             </span>
           </div>
           <div className={styles.image__playbtn}>
