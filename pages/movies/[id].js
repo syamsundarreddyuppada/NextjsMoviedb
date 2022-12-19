@@ -43,15 +43,6 @@ function movieDetails({ movie }) {
         backgroundSize: "100% 100%",
       }}
     >
-      {/* <Image
-        src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-        alt="movie Banner"
-        priority
-        layout="fill"
-        quality={10}
-        placeholder="blur"
-        blurDataURL={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
-      /> */}
       <div className={styles.movie__info}>
         <div className={styles.back}>
           <Link href={"/"} style={{ display: "contents" }}>
@@ -128,19 +119,25 @@ export default movieDetails;
 export const getServerSideProps = async (content) => {
   const { query } = content;
   const { id } = query;
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=6e37d364da090a453e6c12697bcfcde7`
-  );
-  const result = await response.json();
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=6e37d364da090a453e6c12697bcfcde7`
+    );
+    const result = await response.json();
 
-  if (!content.req.cookies.token) {
-    content.res.writeHead(302, { location: "/login" });
-    content.res.end();
+    if (!content.req.cookies.token) {
+      content.res.writeHead(302, { location: "/login" });
+      content.res.end();
+    }
+
+    return {
+      props: {
+        movie: result,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
   }
-
-  return {
-    props: {
-      movie: result,
-    },
-  };
 };

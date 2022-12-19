@@ -3,7 +3,7 @@ import { setCookie } from "cookies-next";
 import styles from "../../styles/login.module.scss";
 import { useRouter } from "next/router";
 import { CircularProgress } from "@mui/material";
-  
+
 function Login() {
   const router = useRouter();
   const [userName, setUserName] = useState("");
@@ -21,7 +21,6 @@ function Login() {
 
         return;
       }
-    setTimeout(async() => {
       const response = await fetch(
         "https://api.themoviedb.org/3/authentication/token/new?api_key=6e37d364da090a453e6c12697bcfcde7"
       );
@@ -30,7 +29,6 @@ function Login() {
       setLoading(false);
 
       router.push("/", undefined, { shallow: false });
-    }, 1000);
     } catch (error) {
       alert(error.message);
       setLoading(false);

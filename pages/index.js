@@ -68,7 +68,10 @@ export default function Home({ data, search }) {
             ))}
           </div>
           <div className={styles.pagination}>
-            <Pagination count={movieList.total_pages} onChange={(e, page) => setPage(page)} />
+            <Pagination
+              count={movieList.total_pages}
+              onChange={(e, page) => setPage(page)}
+            />
           </div>
         </div>
       </div>
@@ -89,18 +92,24 @@ export default function Home({ data, search }) {
 // }
 
 export async function getServerSideProps({ req, res }) {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=6e37d364da090a453e6c12697bcfcde7&page=1`
-  );
-  const result = await response.json();
-  if (!req.cookies.token) {
-    res.writeHead(302, { location: "/login" });
-    res.end();
-  }
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=6e37d364da090a453e6c12697bcfcde7&page=1`
+    );
+    const result = await response.json();
+    if (!req.cookies.token) {
+      res.writeHead(302, { location: "/login" });
+      res.end();
+    }
 
-  return {
-    props: {
-      data: result,
-    },
-  };
-};
+    return {
+      props: {
+        data: result,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+}
