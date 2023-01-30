@@ -1,7 +1,0 @@
-  [functions]
-
-    [functions.timeout]
-    external_node_modules = [
-      "module-one",
-      "module-two"
-    ]
