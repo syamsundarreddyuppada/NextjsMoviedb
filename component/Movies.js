@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React from "react";
 import styles from "../styles/movies.module.scss";
 import playButton from "../assets/images/playButton.svg";
@@ -15,35 +15,36 @@ function Movies({ movie }) {
   return (
     <div className={styles.movie_wrapper}>
       <Link href={`/movies/${movie.id}`} className={styles.link_wrapper}>
-        <Image
-          src={imageSrc}
-          alt={movie.title}
-          placeholder="blur"
-          blurDataURL={imageSrc}
-          width={250}
-          height={250}
-          objectFit="fill"
-          loading={"lazy"}
-        />
-
-        <div className={styles.image__subdetail}>
-          <div className={styles.image__titles}>
-            <span className={styles.image__main__titles}>{movie.title}</span>
-            <span className={styles.subtitle__details}>
-              <StarIcon className={styles.icon_star} />{" "}
-              {parseInt(movie.vote_average)}/10
-              <span className={styles.imdb}>IMDb</span>
-
-            </span>
-          </div>
-          <div className={styles.image__playbtn}>
-            <Image
-              src={playButton}
-              alt="playButton"
-              width={30}
-              height={30}
-              objectFit="contain"
-            />
+        <div>
+          {" "}
+          <Image
+            src={imageSrc}
+            alt={movie.title}
+            placeholder="blur"
+            blurDataURL={imageSrc}
+            width={250}
+            height={250}
+            objectFit="fill"
+            loading={"lazy"}
+          />
+          <div className={styles.image__subdetail}>
+            <div className={styles.image__titles}>
+              <span className={styles.image__main__titles}>{movie.title}</span>
+              <span className={styles.subtitle__details}>
+                <StarIcon className={styles.icon_star} />{" "}
+                {parseInt(movie.vote_average)}/10
+                <span className={styles.imdb}>IMDb</span>
+              </span>
+            </div>
+            <div className={styles.image__playbtn}>
+              <Image
+                src={playButton}
+                alt="playButton"
+                width={30}
+                height={30}
+                objectFit="contain"
+              />
+            </div>
           </div>
         </div>
       </Link>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import banner from "../assets/images/banner.png";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Movies from "../component/Movies";
 import { Pagination } from "@mui/material";
 import { useEffect, useState } from "react";

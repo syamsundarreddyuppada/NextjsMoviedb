@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "../../styles/movieDetails.module.scss";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import playButton from "../../assets/images/playButton.svg";
