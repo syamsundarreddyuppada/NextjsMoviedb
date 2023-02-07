@@ -120,10 +120,10 @@ export const getServerSideProps = async (content) => {
   const { query } = content;
   const { id } = query;
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=6e37d364da090a453e6c12697bcfcde7`
+    const routeApi = await fetch(
+      `https://edge-personal-api.vercel.app/api/paramIdMovie?id=${id}`
     );
-    const result = await response.json();
+    const result = await routeApi.json();
 
     if (!content.req.cookies.token) {
       content.res.writeHead(302, { location: "/login" });
@@ -132,7 +132,7 @@ export const getServerSideProps = async (content) => {
 
     return {
       props: {
-        movie: result,
+        movie: result?.data,
       },
     };
   } catch (error) {

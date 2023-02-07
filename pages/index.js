@@ -93,10 +93,8 @@ export default function Home({ data, search }) {
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=6e37d364da090a453e6c12697bcfcde7&page=1`
-    );
-    const result = await response.json();
+    const routeApi = await fetch("https://edge-personal-api.vercel.app/api/homemoviedb");
+    const result = await routeApi.json();
     if (!req.cookies.token) {
       res.writeHead(302, { location: "/login" });
       res.end();
