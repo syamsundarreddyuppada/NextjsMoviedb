@@ -16,17 +16,19 @@ function Movies({ movie }) {
     <div className={styles.movie_wrapper}>
       <Link href={`/movies/${movie.id}`} className={styles.link_wrapper}>
         <div>
-          {" "}
-          <Image
-            src={imageSrc}
-            alt={movie.title}
-            placeholder="blur"
-            blurDataURL={imageSrc}
-            width={250}
-            height={250}
-            objectFit="fill"
-            loading={"lazy"}
-          />
+          <div className={styles.main_image}>
+            <Image
+              src={imageSrc}
+              alt={movie.title}
+              placeholder="blur"
+              blurDataURL={imageSrc}
+              width={250}
+              height={250}
+              objectFit="fill"
+              loading={"lazy"}
+            />
+          </div>
+
           <div className={styles.image__subdetail}>
             <div className={styles.image__titles}>
               <span className={styles.image__main__titles}>{movie.title}</span>
